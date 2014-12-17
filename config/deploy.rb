@@ -12,6 +12,8 @@ set :scm, :git
 before  'deploy:setup', 'db:create_config'
 after   'deploy:setup', 'deploy:first'
 
+after   'deploy:setup', 'thin:create_symlink'
+
 after   'deploy:finalize_update', 'db:create_symlink'
 after   'deploy:create_symlink', 'deploy:cleanup'
 
