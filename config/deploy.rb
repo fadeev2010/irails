@@ -1,6 +1,8 @@
 require 'capistrano/ext/multistage'
 require 'bundler/capistrano'
 
+set :server_type, ‘thin’
+
 set :stages, %w(staging production)
 set :default_stage, "staging"
 set :deploy_via, :remote_cache

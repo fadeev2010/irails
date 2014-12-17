@@ -8,6 +8,7 @@ gem 'configatron', '2.13.0'
 gem 'navigation_link_to', '0.0.2'
 gem 'cyrax', '~> 0.7.5'
 gem 'sass', '3.2.19'
+gem 'thin', '1.6.2'
 
 gem 'simple_form', '~> 3.0.2'
 gem 'activeadmin', github: "gregbell/active_admin"
@@ -20,7 +21,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '~> 2.5.0'
 gem 'coffee-rails', '~> 4.0.1'
 gem 'therubyracer', platforms: :ruby, require: 'v8'
-gem 'droidcss'
+gem 'droidcss', '1.2.5'
 gem 'jquery-rails'
 
 group :test, :development do
@@ -31,7 +32,6 @@ group :development do
   gem 'capistrano', '2.15.5', require: false
   gem 'letter_opener'
   gem 'quiet_assets', '1.0.2'
-  gem 'thin', '1.6.2'
   gem 'pry-rails'
   gem 'spring'
   gem 'net-ssh', '~> 2.7.0'

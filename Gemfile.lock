@@ -96,7 +96,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
-    droidcss (1.2.6)
+    droidcss (1.2.5)
       sass (>= 3.2.0)
     erubis (2.7.0)
     eventmachine (1.0.3)
@@ -292,7 +292,7 @@ DEPENDENCIES
   cyrax (~> 0.7.5)
   database_cleaner (= 1.2.0)
   devise (~> 3.2.4)
-  droidcss
+  droidcss (= 1.2.5)
   factory_girl_rails (= 4.4.1)
   jquery-rails
   letter_opener
