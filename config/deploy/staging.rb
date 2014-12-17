@@ -19,6 +19,6 @@ set :rails_env, 'staging'
 set :branch, 'deploy_to_vagrant'
 set :use_sudo, true
 
-set :user, 'ninja'
+set :user, 'irails'
 set :password, 'Droid123'
 set :port, 2222
