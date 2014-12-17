@@ -1,10 +1,6 @@
 require 'capistrano/ext/multistage'
 require 'bundler/capistrano'
 
-set :default_environment, {
-  'PATH' => "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH"
-}
-
 set :stages, %w(staging production)
 set :default_stage, "staging"
 set :deploy_via, :remote_cache
