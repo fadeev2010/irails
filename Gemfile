@@ -7,6 +7,7 @@ gem 'devise', '~> 3.2.4'
 gem 'configatron', '2.13.0'
 gem 'navigation_link_to', '0.0.2'
 gem 'cyrax', '~> 0.7.5'
+gem 'sass', '3.2.19'
 
 gem 'simple_form', '~> 3.0.2'
 gem 'activeadmin', github: "gregbell/active_admin"
