@@ -1,1 +1,1 @@
-set(:rake_cmd) {"#{bundle_cmd rescue 'bundle'} exec rake RAILS_ENV=#{rails_env}"}
+set(:rake_cmd) {"#{fetch(:bundle_cmd, "bundle")} exec rake RAILS_ENV=#{rails_env}"}

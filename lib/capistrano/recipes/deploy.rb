@@ -1,6 +1,6 @@
 set(:server_type, "passenger")
 
-set(:thin_command) { "#{bundle_cmd} exec thin" }
+set(:thin_command) { "#{fetch(:bundle_cmd, "bundle")} exec thin" }
 set(:thin_config_file) { "#{current_path}/thin.yml" }
 set(:thin_config) { "-C #{thin_config_file}" }
 set(:unicorn_conf) { "#{current_path}/config/unicorn.rb" }
@@ -52,13 +52,13 @@ end
 
 namespace :unicorn do
   task :start do
-    run "cd #{deploy_to}/current && #{bundle_cmd rescue 'bundle'} exec unicorn -c #{unicorn_conf} -E #{rails_env} -D"
+    run "cd #{deploy_to}/current && #{fetch(:bundle_cmd, "bundle")} exec unicorn -c #{unicorn_conf} -E #{rails_env} -D"
   end
   task :stop do
     run "if [ -f #{unicorn_pid} ]; then kill -QUIT `cat #{unicorn_pid}`; fi"
   end
   task :restart, roles: :app, except: { no_release: true } do
-    run "if [ -f #{unicorn_pid} ]; then kill -USR2 `cat #{unicorn_pid}`; else cd #{current_path} && #{bundle_cmd rescue 'bundle'} exec unicorn -c #{unicorn_conf} -E #{rails_env} -D; fi"
+    run "if [ -f #{unicorn_pid} ]; then kill -USR2 `cat #{unicorn_pid}`; else cd #{current_path} && #{fetch(:bundle_cmd, "bundle")} exec unicorn -c #{unicorn_conf} -E #{rails_env} -D; fi"
   end
 
   desc "Make symlink for unicorn.rb"
