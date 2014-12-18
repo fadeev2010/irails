@@ -13,29 +13,29 @@ namespace :db do
       end
 
       db_config = <<-EOF
-default: &default
-  adapter: mysql2
-  encoding: utf8
-  username: #{db_username}
-  password: #{db_password}
-
-development:
-  database: #{db_name_development}
-  <<: *default
-
-test:
-  database: #{db_name_test}
-  <<: *default
-
-staging:
-  database: #{db_name_staging}
-  <<: *default
-
-production:
-  database: #{db_name_production}
-  <<: *default
+      default: &default
+        adapter: mysql2
+        encoding: utf8
+        username: #{db_username}
+        password: #{db_password}
+      
+      development:
+        database: #{db_name_development}
+        <<: *default
+      
+      test:
+        database: #{db_name_test}
+        <<: *default
+      
+      staging:
+        database: #{db_name_staging}
+        <<: *default
+      
+      production:
+        database: #{db_name_production}
+        <<: *default
       EOF
-
+     
       run "mkdir -p #{shared_path}/config"
       put db_config, "#{shared_path}/config/database.yml"
       run "mysql --user=#{db_username} --password=#{db_password} -e \"CREATE DATABASE IF NOT EXISTS #{db_name_staging}\""
@@ -55,5 +55,9 @@ production:
 
   task :migrate_data do
     run "cd #{release_path} && #{rake_cmd} data:migrate"
+  end
+
+  task :schema_load do
+    run "cd #{release_path} && #{rake_cmd} db:schema:load"
   end
 end

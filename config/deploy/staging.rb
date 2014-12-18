@@ -17,7 +17,7 @@ set :deploy_to, "/data/#{application}"
 
 set :rails_env, 'staging'
 set :branch, 'deploy_to_vagrant'
-set :use_sudo, true
+set :use_sudo, false
 
 set :user, 'irails'
 set :password, 'Droid123'
