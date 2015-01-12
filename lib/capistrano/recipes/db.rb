@@ -43,9 +43,10 @@ production:
     end
   end
 
-  desc "Make symlink for database.yml"
+  desc "Make symlink for database.yml, secrets.yml"
   task :create_symlink do
     run "ln -nfs #{shared_path}/config/database.yml #{latest_release}/config/database.yml"
+    run "ln -nfs #{shared_path}/config/secrets.yml #{latest_release}/config/secrets.yml"
   end
 
   desc "Setup DB data"
